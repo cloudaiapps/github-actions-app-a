@@ -1,4 +1,4 @@
-name: CD Parallel WorkFlow
+name: CD WorkFlow
 
 on:
   # push:
