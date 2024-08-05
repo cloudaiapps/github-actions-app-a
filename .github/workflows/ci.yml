@@ -46,6 +46,18 @@ jobs:
       - name: xxx
         run: echo "xxx"
 
+  unit-test-execute-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+
+  code-coverage-check-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+
   build-artifact-create-job:
     needs:
       - checkout-code-job
@@ -54,12 +66,14 @@ jobs:
       - code-profiling-scan-job
       - code-scan-job
       - external-library-scan-job
+      - unit-test-execute-job
+      - code-coverage-check-job
     runs-on: ubuntu-latest
     steps:
       - name: xxx
         run: echo "xxx"
 
-  image-create-job:
+  build-image-create-job:
     needs: build-artifact-create-job
     runs-on: ubuntu-latest
     steps:
@@ -67,7 +81,7 @@ jobs:
         run: echo "xxx"
 
   image-upload-job:
-    needs: image-create-job
+    needs: build-image-create-job
     runs-on: ubuntu-latest
     steps:
       - name: xxx
