@@ -1,0 +1,61 @@
+name: CT WorkFlow
+
+on:
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+  workflow_dispatch:
+      inputs:
+          environment-name:
+            description: Select the environment where testing will be performed
+            required: true
+            type: environment
+          testing-job-type:
+          description: Select the Testing job type
+          required: true
+          type: choice
+          options:
+          - progression
+          - regression
+          - performance
+          - load
+          - failover
+          - bvt
+jobs:
+  progression-job:
+    if: progression == ${{ inputs.testing-job-type}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+  reggression-job:
+    if: reggression == ${{ inputs.testing-job-type}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+  performance-job:
+    if: performance == ${{ inputs.testing-job-type}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+  load-job:
+    if: load == ${{ inputs.testing-job-type}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+  failover-job:
+    if: failover == ${{ inputs.testing-job-type}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+  bvt-job:
+    if: bvt == ${{ inputs.testing-job-type}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
