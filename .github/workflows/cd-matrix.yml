@@ -18,19 +18,20 @@ on:
 jobs:
   image-download-job:
     runs-on: ubuntu-latest
-    environment: ${{inputs.environment-name}}
+    environment: ${{github.event.inputs.environment-name}}
     strategy:
         matrix:
-            environment-name: [ '${{ inputs.environment-name }}']
-            microservice-image-names: [ '${{ inputs.microservice-image-names }}' ]
+            environment-name: [ '${{ github.event.inputs.environment-name }}']
+            microservice-image-names: [ '${{ github.event.inputs.microservice-image-names }}' ]
     steps:
+      - name: Input variables
+        run: |
+            echo "Environment input value: ${{ github.event.inputs.environment-name }}"
+            echo "Images input value: ${{ github.event.inputs.microservice-image-names }}"
       - name: xxx
         run: |
             echo "The inputs values are ${{ matrix.environment-name }} ${{ matrix.microservice-image-names }}"
             echo "The secret is ${{ secrets.MY_SECRET }}"
-        # with:
-        #     environment-name: ${{ matrix.environment-name }}
-        #     microservice-image-name: $ {{ matrix.microservice-image-name }}
 
   image-deploy-job:
     needs: image-download-job
