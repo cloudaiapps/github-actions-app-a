@@ -24,37 +24,37 @@ on:
               - bvt
 jobs:
   progression-job:
-    if: ${{ inputs.testing-job-type }} == 'progression' 
     runs-on: ubuntu-latest
+    if: ${{ inputs.testing-job-type == 'progression' }}
     steps:
       - name: xxx
         run: echo "xxx"
   regression-job:
-    if: ${{ inputs.testing-job-type }} == 'regression'
+    if: ${{ inputs.testing-job-type == 'regression' }}
     runs-on: ubuntu-latest
     steps:
       - name: xxx
         run: echo "xxx"
   performance-job:
-    if: ${{ inputs.testing-job-type }} == 'performance'
+    if: ${{ inputs.testing-job-type == 'performance' }}
     runs-on: ubuntu-latest
     steps:
       - name: xxx
         run: echo "xxx"
   load-job:
-    if: ${{ inputs.testing-job-type }} == 'load'
+    if: ${{ inputs.testing-job-type == 'load' }}
     runs-on: ubuntu-latest
     steps:
       - name: xxx
         run: echo "xxx"
   failover-job:
-    if: ${{ inputs.testing-job-type }} == 'failover'
+    if: ${{ inputs.testing-job-type == 'failover' }}
     runs-on: ubuntu-latest
     steps:
       - name: xxx
         run: echo "xxx"
   bvt-job:
-    if: ${{ inputs.testing-job-type }} == 'bvt'
+    if: ${{ inputs.testing-job-type == 'bvt' }}
     runs-on: ubuntu-latest
     steps:
       - name: xxx
