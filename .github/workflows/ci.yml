@@ -16,28 +16,33 @@ jobs:
 
   formatting-code-check-job:
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
 
   linting-code-check-job:
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
 
   code-profiling-scan-job:
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
 
 
   code-scan-job:
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
 
 
   external-library-scan-job:
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
 
@@ -50,23 +55,27 @@ jobs:
       - code-scan-job
       - external-library-scan-job
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
 
   image-create-job:
     needs: build-artifact-create-job
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
 
   image-upload-job:
     needs: image-create-job
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
 
   git-tag-create-job:
     needs: image-upload-job
     runs-on: ubuntu-latest
+    steps:
       - name: xxx
         run: echo "xxx"
