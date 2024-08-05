@@ -28,9 +28,9 @@ jobs:
         run: |
             echo "The inputs values are ${{ matrix.environment-name }} ${{ matrix.microservice-image-name }}"
             echo "The secret is ${{ secrets.MY_SECRET }}"
-        with:
-            environment-name: ${{ matrix.environment-name }}
-            microservice-image-name: $ {{ matrix.microservice-image-name }}
+        # with:
+        #     environment-name: ${{ matrix.environment-name }}
+        #     microservice-image-name: $ {{ matrix.microservice-image-name }}
 
   image-deploy-job:
     needs: image-download-job
