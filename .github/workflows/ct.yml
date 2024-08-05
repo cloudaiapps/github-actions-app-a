@@ -12,16 +12,16 @@ on:
             required: true
             type: environment
           testing-job-type:
-          description: Select the Testing job type
-          required: true
-          type: choice
-          options:
-          - progression
-          - regression
-          - performance
-          - load
-          - failover
-          - bvt
+              description: Select the Testing job type
+              required: true
+              type: choice
+              options:
+              - progression
+              - regression
+              - performance
+              - load
+              - failover
+              - bvt
 jobs:
   progression-job:
     if: progression == ${{ inputs.testing-job-type}}
