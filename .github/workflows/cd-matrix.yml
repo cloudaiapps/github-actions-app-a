@@ -11,7 +11,7 @@ on:
             description: Select the environment to deploy Micro Service
             required: true
             type: environment
-          microservice-image-names:
+          microservice-image-name:
             description: Select the micro service image name
             required: true
             type: string
@@ -26,8 +26,11 @@ jobs:
     steps:
       - name: xxx
         run: |
-            echo "The inputs values are ${{ inputs.environment-name }} ${{ inputs.microservice-image-names }}"
+            echo "The inputs values are ${{ matrix.environment-name }} ${{ matrix.microservice-image-name }}"
             echo "The secret is ${{ secrets.MY_SECRET }}"
+        with:
+            environment-name: ${{ matrix.environment-name }}
+            microservice-image-name: $ {{ matrix.microservice-image-name }}
 
   image-deploy-job:
     needs: image-download-job
