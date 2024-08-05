@@ -22,7 +22,7 @@ jobs:
     strategy:
         matrix:
             environment-name: [ "${{ inputs.environment-name }}" ]
-            microservice-image-names: [ "${{ inputs.microservice-image-name }}" ]
+            microservice-image-names: ${{ fromJson(inputs.microservice-image-name) }}
     steps:
       - name: Display input variables
         run: |
