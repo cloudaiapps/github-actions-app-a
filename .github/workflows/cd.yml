@@ -1,0 +1,38 @@
+name: CD WorkFlow
+
+on:
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+  workflow_dispatch:
+      inputs:
+          environment:
+            description: Select the environment to deploy Micro Service
+            required: true
+            type: environment
+            
+          microservice-name:
+            description: Select the micro service
+            type: choice
+            options:
+            - app-a
+            - app-b
+            - app-c
+            - app-d
+
+          microservice-images:
+            description: Select the image name
+            type: string
+jobs:
+  image-download-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+
+  image-deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
