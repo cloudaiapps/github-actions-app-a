@@ -27,11 +27,13 @@ on:
 jobs:
   image-download-job:
     runs-on: ubuntu-latest
+    environment: ${{inputs.environment-name}}
     steps:
       - name: xxx
         run: echo " The inputs values are ${{inputs.environment-name}} ${{inputs.microservice-name}} ${{inputs.microservice-image-name}}"
 
   image-deploy-job:
+    needs: image-download-job
     runs-on: ubuntu-latest
     steps:
       - name: xxx
