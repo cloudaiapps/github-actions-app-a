@@ -1,0 +1,11 @@
+name: CI WorkFlow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-reusable-java-ci-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        uses: cloudaiapps/github-actions-reusable-workflows.github/workflows/ci/java/ci.yml@main
