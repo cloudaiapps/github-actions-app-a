@@ -7,7 +7,7 @@ on:
   #   branches: [ "main" ]
   workflow_dispatch:
       inputs:
-          environment:
+          environment-name:
             description: Select the environment to deploy Micro Service
             required: true
             type: environment
@@ -21,15 +21,15 @@ on:
             - app-c
             - app-d
 
-          microservice-images:
-            description: Select the image name
+          microservice-image-name:
+            description: Select the micro service image name
             type: string
 jobs:
   image-download-job:
     runs-on: ubuntu-latest
     steps:
       - name: xxx
-        run: echo "xxx"
+        run: echo " The inputs values are ${{inputs.environment-name}} ${{inputs.microservice-name}} ${{inputs.microservice-image-name}}"
 
   image-deploy-job:
     runs-on: ubuntu-latest
