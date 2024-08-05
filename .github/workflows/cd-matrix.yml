@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: xxx
         run: |
-            echo "The inputs values are ${{ matrix.environment-name }} ${{ matrix.microservice-image-name }}"
+            echo "The inputs values are ${{ matrix.environment-name }} ${{ matrix.microservice-image-names }}"
             echo "The secret is ${{ secrets.MY_SECRET }}"
         # with:
         #     environment-name: ${{ matrix.environment-name }}
