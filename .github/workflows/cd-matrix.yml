@@ -21,8 +21,8 @@ jobs:
     environment: ${{inputs.environment-name}}
     strategy:
         matrix:
-            environment-name: [ ${{ inputs.environment-name }}]
-            microservice-image-names: [ ${{ inputs.microservice-image-names }} ]
+            environment-name: [ '${{ inputs.environment-name }}']
+            microservice-image-names: [ '${{ inputs.microservice-image-names }}' ]
     steps:
       - name: xxx
         run: |
