@@ -1,0 +1,36 @@
+name: CD Workflow
+
+on:
+  workflow_dispatch:
+      inputs:
+          microservice-name:
+              type: choice
+              description: Please select your Micro Service that needs to be Deployed.
+              required: true
+              options: 
+              - app-a
+              - app-b
+              - app-c
+              - app-d
+          environment-name:
+              type: environment
+              description: Please select the Environment where you need to deploy the Micro Service?
+              required: true
+              options: 
+              - DEV
+              - ST
+              - SIT
+              - PROD
+jobs:
+  image-download-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: xxx
+        run: echo "xxx"
+
+  image-deploy-job:
+    runs-on: ubuntu-latest
+    needs: image-download-job
+    steps:
+      - name: xxx
+        run: echo "xxx"
