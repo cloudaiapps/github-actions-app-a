@@ -12,11 +12,12 @@ on:
             required: true
             type: environment
           microservice-image-name:
-            description: Select the micro service image name
+            description: |
+              Enter the micro service image names in the array form eg: ['image-a', 'image-b', 'image-c']
             required: true
             type: string
 jobs:
-  image-download-parallel-job:
+  images-download-job:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment-name }}
     strategy:
@@ -24,12 +25,12 @@ jobs:
             environment-name: [ "${{ inputs.environment-name }}" ]
             microservice-image-names: ${{ fromJson(inputs.microservice-image-name) }}
     steps:
-      - name: xxx
+      - name: images-download-job-step
         run: |
             echo "The inputs values are ${{ matrix.environment-name }} ${{ matrix.microservice-image-names }}"
             echo "The secret is ${{ secrets.MY_SECRET }}"
-  image-deploy-parallel-job:
-    needs: image-download-parallel-job
+  images-deploy-job:
+    needs: images-download-job
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment-name }}
     strategy:
@@ -37,7 +38,7 @@ jobs:
             environment-name: [ "${{ inputs.environment-name }}" ]
             microservice-image-names: ${{ fromJson(inputs.microservice-image-name) }}
     steps:
-      - name: image-deploy-job-step
+      - name: images-deploy-job-step
         run: |
             echo "The inputs values are ${{ matrix.environment-name }} ${{ matrix.microservice-image-names }}"
             echo "The secret is ${{ secrets.MY_SECRET }}"
