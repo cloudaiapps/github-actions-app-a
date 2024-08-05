@@ -22,9 +22,9 @@ jobs:
     strategy:
         matrix:
             environment-name: [ '${{ github.event.inputs.environment-name }}']
-            microservice-image-names: [ '${{ github.event.inputs.microservice-image-names }}' ]
+            microservice-image-names: [ 'a','b','c','d' ]
     steps:
-      - name: Input variables
+      - name: Display input variables
         run: |
             echo "Environment input value: ${{ github.event.inputs.environment-name }}"
             echo "Images input value: ${{ github.event.inputs.microservice-image-names }}"
